@@ -5,11 +5,11 @@ const userSet = {
 function main() {
 
     const inputarea = document.getElementById("input");
-    inputarea.innerHTML = el; 
+    inputarea.innerHTML = data;  // 変数dataは、readdata/ 内データ
     window.addEventListener("load", csvread, false);
 
     function csvread(){
-        let input_text = document.getElementById('input').innerHTML;
+        let input_text = document.getElementById('input').innerText;
 
         // 改行コードで分割し、配列に格納
         let csv_table = input_text.trim().split("\n");
