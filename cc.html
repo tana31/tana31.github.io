@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+</head>
+<body>
+    <script>
+        // URLからパラメーターを取得する関数
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // rパラメーターからURLを取得
+        var redirectURL = getUrlParameter('r');
+
+        // リダイレクト処理
+        if (redirectURL) {
+            window.location.href = redirectURL;
+        } else {
+            // rパラメーターがない場合は、適切な処理を行うかエラーメッセージを表示するなど
+            console.error("Redirect URL is missing.");
+        }
+    </script>
+</body>
+</html>
